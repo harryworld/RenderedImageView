@@ -15,6 +15,8 @@ extension NSView {
     // ===================
 
     func move(anchorPoint anchorPoint: CGPoint) {
+        guard layer != nil else { return }
+
         var newPoint = CGPointMake(bounds.size.width * anchorPoint.x, bounds.size.height * anchorPoint.y)
         var oldPoint = CGPointMake(bounds.size.width * layer!.anchorPoint.x, bounds.size.height * layer!.anchorPoint.y)
 
@@ -54,7 +56,7 @@ extension NSView {
         var transform = CATransform3DIdentity
         transform.m34 = -1.0 / 500.0
         transform = CATransform3DRotate(transform, radians, 1, 0, 0)
-        layer!.transform = transform
+        layer?.transform = transform
     }
 
     func setAngleWithInset(degrees: CGFloat) {
@@ -64,7 +66,7 @@ extension NSView {
         transform.m34 = -1.0 / 500.0
         transform = CATransform3DTranslate(transform, 0, 0, -depth)
         transform = CATransform3DRotate(transform, radians, 1, 0, 0)
-        layer!.transform = transform
+        layer?.transform = transform
     }
 
 }

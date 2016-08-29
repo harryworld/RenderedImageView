@@ -29,8 +29,9 @@ class CopyImageView: NSView {
         let h = height //.clamped(0, bounds.height)
         //let percent = 1 - h / bounds.height
         let angle = acos(h / bounds.height).radiansToDegrees()
-        topHalf.setAngleWithInset(-angle)
-        bottomHalf.setAngleWithInset(angle)
+        Swift.print(angle)
+        topHalf.setAngleWithInset(angle)
+        bottomHalf.setAngleWithInset(-angle)
         //topHalf.tintPercent(percent)
         //bottomHalf.tintPercent(percent)
     }
